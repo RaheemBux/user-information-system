@@ -28,7 +28,7 @@ import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
 
-
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 public class LoginController {
 
