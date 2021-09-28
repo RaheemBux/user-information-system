@@ -44,7 +44,7 @@ public class LoginController {
     UsersAuthenticationProvider usersAuthenticationProvider;
 
     @PostMapping(value = "/auth")
-    public ResponseEntity<?> createAuthenticationToken(@ModelAttribute JwtAuthenticationRequest jwtAuthenticationRequest, HttpServletRequest request, HttpServletResponse response) throws AuthenticationException, IOException {
+    public ResponseEntity<?> createAuthenticationToken(@RequestBody JwtAuthenticationRequest jwtAuthenticationRequest, HttpServletRequest request, HttpServletResponse response) throws AuthenticationException, IOException {
         logger.info("Inside Auth Service");
         // Perform the security
         Device device = DeviceUtils.getCurrentDevice(request);

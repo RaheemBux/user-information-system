@@ -63,6 +63,7 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
             authUrlList.add("user/getAll");
             authUrlList.add("user/views");
 
+
             if (authUrlList.contains(url)) {
                 System.out.println("username: " + request.getParameter("username"));
                 System.out.println("Password: " + request.getParameter("password"));
@@ -119,9 +120,6 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
                                 url = urlSplitter[0];
                             }
                             ArrayList<String> utilPermissionList = jwtTokenUtil.getPermissionList(authToken);
-
-
-
                             utilPermissionList.add("employee/create");
                             utilPermissionList.add("employee/update");
                             utilPermissionList.add("employee/delete");

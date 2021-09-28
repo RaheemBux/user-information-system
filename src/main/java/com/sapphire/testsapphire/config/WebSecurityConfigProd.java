@@ -52,9 +52,8 @@ public class WebSecurityConfigProd extends WebSecurityConfigurerAdapter {
     }
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http
-                // we don't need CSRF because our token is invulnerable
-                .cors().and().csrf().disable()
+        http.
+                cors().and().csrf().disable()
 
                 //.exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
 

@@ -22,7 +22,7 @@ public class EmployeeController {
     EmployeeService employeeService;
 
     @PostMapping(value = "/create") //, consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    public ResponseEntity<StatusDTO> create(@ModelAttribute EmployeeDTO employeeDTO) { //@ModelAttribute UserDTO userDTO, @ModelAttribute("file") MultipartFile file) {
+    public ResponseEntity<StatusDTO> create(@RequestBody EmployeeDTO employeeDTO) { //@ModelAttribute UserDTO userDTO, @ModelAttribute("file") MultipartFile file) {
         try {
             EmployeeEntity employeeEntity= EmployeeTransformer.getEmployeeEntity(employeeDTO);
             employeeEntity.setStatus(true);
@@ -34,7 +34,7 @@ public class EmployeeController {
         }
     }
     @PostMapping(value = "/update")
-    public ResponseEntity<StatusDTO> update(@ModelAttribute EmployeeDTO employeeDTO) { //@ModelAttribute UserDTO userDTO, @ModelAttribute("file") MultipartFile file) {
+    public ResponseEntity<StatusDTO> update(@RequestBody EmployeeDTO employeeDTO) { //@ModelAttribute UserDTO userDTO, @ModelAttribute("file") MultipartFile file) {
         try {
             EmployeeEntity employeeEntity=employeeService.findById(Long.parseLong(employeeDTO.getId()));
             if (employeeEntity== null) {
